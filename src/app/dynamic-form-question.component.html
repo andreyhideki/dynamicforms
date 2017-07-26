@@ -1,0 +1,41 @@
+<div [formGroup]="form">
+  {{ question.controlType }}<br>
+  {{ question.key }}<br>
+  {{ question.type }}<br>
+
+  <label [attr.for]="question.key">{{question.label}}</label>
+
+  <div [ngSwitch]="question.controlType">
+    
+    <div *ngSwitchCase="'textbox'" >
+      <input [formControlName]="question.key" [id]="question.key" [type]="question.controlType">
+    </div>
+
+    <div *ngSwitchCase="'dropdown'" >
+      <select [formControlName]="question.key" [id]="question.key">
+        <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+      </select>
+    </div>
+
+    <!-- <div *ngSwitchCase="'checkbox'" >
+      <input [ngControl]="question.key" [id]="question.key" [type]="question.controlType">
+    </div> -->
+    
+    <!-- type="radio" -->
+    <!-- [type]="question.controlType" -->
+    <div *ngSwitchCase="'radio'" >  
+      <div *ngFor="let opt of question.options;" >  
+        <input  [formControlName]="question.key" [id]="question.key" 
+              type="radio"
+              [name]="opt.type" 
+              [id]="opt.key"
+              [value]="opt.value" 
+            >{{ opt.value }}
+      </div>
+    </div> 
+  </div> 
+
+  <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
+
+   
+</div>

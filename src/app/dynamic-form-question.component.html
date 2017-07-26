@@ -1,14 +1,14 @@
 <div [formGroup]="form">
-  {{ question.controlType }}<br>
-  {{ question.key }}<br>
-  {{ question.type }}<br>
+  <!-- {{ question.controlType }}<br> -->
+  <!-- {{ question.key }}<br> -->
+  <!-- {{ question.type }}<br> -->
 
   <label [attr.for]="question.key">{{question.label}}</label>
 
   <div [ngSwitch]="question.controlType">
     
     <div *ngSwitchCase="'textbox'" >
-      <input [formControlName]="question.key" [id]="question.key" [type]="question.controlType">
+      <input [formControlName]="question.key" [id]="question.key" [type]="question.type">
     </div>
 
     <div *ngSwitchCase="'dropdown'" >
@@ -17,12 +17,10 @@
       </select>
     </div>
 
-    <!-- <div *ngSwitchCase="'checkbox'" >
-      <input [ngControl]="question.key" [id]="question.key" [type]="question.controlType">
-    </div> -->
+     <div *ngSwitchCase="'checkbox'" > 
+       <input [formControlName]="question.key" [id]="question.key" type="checkbox"> {{ question.label }}
+     </div>  
     
-    <!-- type="radio" -->
-    <!-- [type]="question.controlType" -->
     <div *ngSwitchCase="'radio'" >  
       <div *ngFor="let opt of question.options;" >  
         <input  [formControlName]="question.key" [id]="question.key" 

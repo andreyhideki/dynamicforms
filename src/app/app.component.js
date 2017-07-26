@@ -13,7 +13,10 @@ var core_1 = require("@angular/core");
 var question_service_1 = require("./question.service");
 var AppComponent = (function () {
     function AppComponent(service) {
+        console.log('aaaa1');
         this.questions = service.getQuestions();
+        console.log(this.questions);
+        console.log('aaaa2');
     }
     return AppComponent;
 }());

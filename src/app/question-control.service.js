@@ -19,6 +19,7 @@ var QuestionControlService = (function () {
         questions.forEach(function (question) {
             group[question.key] = question.required ? new forms_1.FormControl(question.value || '', forms_1.Validators.required)
                 : new forms_1.FormControl(question.value || '');
+            console.log(question);
         });
         return new forms_1.FormGroup(group);
     };

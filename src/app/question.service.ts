@@ -31,6 +31,7 @@ export class QuestionService {
         key: 'firstName',
         label: 'First name',
         value: 'Bombasto',
+        type: 'text',
         required: true,
         order: 1
       }),
@@ -80,13 +81,13 @@ export class QuestionService {
         order: 6
       }),
 
-      // new CheckboxQuestion({
-      //   key: 'agree',
-      //   label: 'I Agree',
-      //   type: 'checkbox',
-      //   required: true,
-      //   order: 8
-      // }),
+      new CheckboxQuestion({
+        key: 'checkbox',
+        label: 'Permite selecionar',
+        type: 'checkbox',
+        required: true,
+        order: 8
+      }),
 
       new TextboxQuestion({
         key: 'teste',
@@ -94,10 +95,75 @@ export class QuestionService {
         value: 'teste',
         required: true,
         order: 7
-      })
+      }),
+
+
+      // new TextboxQuestion({
+      //   key: 'nome',
+      //   label: 'Nome',
+      //   // value: 'Bombasto',
+      //   type: 'text',
+      //   required: true,
+      //   order: 1
+      // }),
+
+      // new TextboxQuestion({
+      //   key: 'dataDeNascimento',
+      //   label: 'Data de Nascimento',
+      //   type: 'text',
+      //   order: 2
+      // }),
+
+      // new TextboxQuestion({
+      //   key: 'rh',
+      //   label: 'RH',
+      //   type: 'text',
+      //   required: true,
+      //   order: 3
+      // }),
+
+      // new TextboxQuestion({
+      //   key: 'cpf',
+      //   label: 'CPF',
+      //   type: 'text',
+      //   required: true,
+      //   order: 4
+      // }),
+
+      // new TextboxQuestion({
+      //   key: 'cnh',
+      //   label: 'CNH',
+      //   type: 'text',
+      //   required: true,
+      //   order: 5
+      // }),
+
+      // new TextboxQuestion({
+      //   key: 'telefone',
+      //   label: 'Telefone',
+      //   type: 'text',
+      //   required: true,
+      //   order: 6
+      // }),
+
+      // new RadioQuestion({
+      //   key: 'temFilhos',
+      //   label: 'Tem Filhos?',
+      //   type: 'radio',
+      //   options: [
+      //     {key: 'Sim',  value: 'T'},
+      //     {key: 'Não',  value: 'F'},
+      //   ],
+      //   order: 7
+      // }),
+
     ];
-    console.log(questions);
-    console.log('eee');
+    // console.log(questions);
+    // console.log('eee');
+
+    // http://embed.plnkr.co/6XKA5Bk8Oor8dP8pL1xr/
+
+
     return questions.sort((a, b) => a.order - b.order);
   }
 }
